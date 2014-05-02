@@ -126,3 +126,14 @@ footer{
 			height: 150px;
 			width: 150px;
 		}
+
+.inputField{
+	width: 280px;
+	padding: 4px;
+}		
+
+label{
+	float: left;
+	width: 100px;
+	font-weight: bold;
+}

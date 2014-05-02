@@ -73,6 +73,85 @@ class SkateController
 
 		return $result;
 	}
+
+	function GetImages()
+	{
+		//select folder to scan
+		$handle = opendir("img");
+
+		//read al files and store names in array 
+		while ($image = readdir($handle)) 
+		{
+			$images[] = $image;
+		}
+
+		closedir($handle);
+
+		//exclude all filenames where filelength < 3
+		$imageArray = array();
+		foreach ($images as $image) 
+		{
+			if(strlen($image) > 2)
+			{
+				array_push($imageArray, $image);
+			}
+		}
+	//create <select><option> Values and return result
+		$result = $this->CreateOptionValues($imageArray);
+		return $result;
+	}
+
+
+	//<editor-fold desc="Set Methods">
+	function InsertSkate()
+	{
+		$deck = $_POST["txtDeck"];
+		$brands = $_POST["ddlBrands"];
+		$price = $_POST["txtPrice"];
+		$pros = $_POST["txtPros"];
+		$cons = $_POST["txtCons"];
+		$image = $_POST["ddlImage"];
+		$description = $_POST["txtDescription"];
+
+		$skate = new SkateEntity(-1, $brands, $deck, $pros, $cons, $price, $image, $description);
+		$skateModel = new SkateModel();
+		$skateModel->InsertSkate($skate);
+
+		// $id, $brand, $deck, $pros, $cons, $price, $image, $description
+
+		// -1 is used when data is considered to be 'dummy data'
+	}
+
+	function UpdateSkate($id)
+	{
+
+	}
+
+	function DeleteSkate($id)
+	{
+
+	}
+	//</editor-fold>
+
+	//<editor-fold desc="Get Methods">
+	function GetSkateById($id)
+	{
+		$skateModel = new SkateModel();
+		return $skateModel->GetSkateById($id);
+	}
+
+	function GetSkateByBrand($brand)
+	{
+		$skateModel = new SkateModel();
+		return $skateModel->GetSkateByBrand($brand);
+	}
+
+	function GetSkateBrands()
+	{
+		$skateModel = new SkateModel();
+		return $skateModel->GetSkateBrands();
+	}
+	//</editor-fold>
 }
 
 

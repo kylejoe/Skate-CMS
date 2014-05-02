@@ -16,6 +16,7 @@
 				<li><a href="skate.php">Skate Decks</a></li>
 				<li><a href="">Shop</a></li>
 				<li><a href="">About</a></li>
+				<li><a href="management.php">Management</a></li>
 			</ul>
 		</nav>
 
