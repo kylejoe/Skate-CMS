@@ -106,9 +106,12 @@ class SkateModel
 		mysql_real_escape_string($skate->pros),
 		mysql_real_escape_string($skate->cons),
 		mysql_real_escape_string($skate->price),
-		mysql_real_escape_string("img/" . $skate->image),
+		mysql_real_escape_string("img/skatedecks/" . $skate->image),
 		mysql_real_escape_string($skate->description));
+
 		$this->PerformQuery($query);
+
+		header('Location: skate.php');
 	}
 
 	function UpdateSkate($id, SkateEntity $skate)
@@ -122,10 +125,12 @@ class SkateModel
 		mysql_real_escape_string($skate->pros),
 		mysql_real_escape_string($skate->cons),
 		mysql_real_escape_string($skate->price),
-		mysql_real_escape_string("img/" . $skate->image),
+		mysql_real_escape_string("img/skatedecks/" . $skate->image),
 		mysql_real_escape_string($skate->description));
 		
 		$this->PerformQuery($query);
+		
+		header('Location: skate.php');
 	}
 
 	function DeleteSkate($id)

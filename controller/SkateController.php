@@ -127,7 +127,7 @@ class SkateController
 	function GetImages()
 	{
 		//select folder to scan
-		$handle = opendir("img");
+		$handle = opendir("img/skatedecks/");
 
 		//read al files and store names in array 
 		while ($image = readdir($handle)) 
@@ -191,6 +191,7 @@ class SkateController
 	{
 		$skateModel = new SkateModel();
 		$skateModel->DeleteSkate($id);
+		header('Location: skateoverview.php');
 
 	}
 	//</editor-fold>

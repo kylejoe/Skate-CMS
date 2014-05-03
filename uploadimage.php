@@ -21,14 +21,14 @@ $content = '
 			($fileType == "image/png"))
 		{
 			//check if files exists
-			if (file_exists("img/" . $_FILES["file"]['name']))
+			if (file_exists("img/skatedecks/" . $_FILES["file"]['name']))
 			{
 				echo "File already exists";
 			}
 			else
 			{
-				move_uploaded_file($_FILES["file"]["tmp_name"], "img/" . $_FILES["file"]["name"]);
-				echo "Upload in " . "img/" . $_FILES["file"]["name"];
+				move_uploaded_file($_FILES["file"]["tmp_name"], "img/skatedecks/" . $_FILES["file"]["name"]);
+				echo "Upload in " . "img/skatedecks/" . $_FILES["file"]["name"];
 			}
 		}
 		

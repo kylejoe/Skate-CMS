@@ -13,9 +13,8 @@
 		<nav id='navigation'>
 			<ul id='nav'>
 				<li><a href="index.php">Home</a></li>
+				<li><a href="about.php">About</a></li>
 				<li><a href="skate.php">Skate Decks</a></li>
-				<li><a href="">Shop</a></li>
-				<li><a href="">About</a></li>
 				<li><a href="management.php">Management</a></li>
 			</ul>
 		</nav>
@@ -25,11 +24,12 @@
 		</div>
 
 		<div id='sidebar'>
-
+			<img src="img/pictureofskating.jpg">
 		</div>
 
 		<footer>
-			<p>All rights reserved</p>
+			<p>All rights reserved &#174</p>
+			<p><?php echo date("Y"); ?></p>
 		</footer>
 
 	</div>

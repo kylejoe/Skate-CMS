@@ -17,11 +17,11 @@ body p {
 }
 
 #banner{
-	background-image: url(../img/blacklabel.jpg);
+	background-image: url(../img/air.jpg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	border: 5px solid #dedede;
-	height: 200px;
+	height: 400px;
 }
 
 #content_area{
@@ -31,14 +31,23 @@ body p {
 	padding: 10px;
 }
 
+	#content_area h2{
+		margin-top: 0;
+	}
+
 #sidebar{
 	float: right;
 	width: 250px;
 	height: 400px;
 	margin: 20px 10px;
-	padding: 10px;
+	/*padding: 10px;*/
 	border: 2px solid #e3e3e3;
 }
+
+	#sidebar img{
+		max-width: 100%;
+		min-height: 100%;
+	}
 
 footer{
 	clear: both; /*No floating elements allowed on the left or the right side*/
@@ -51,6 +60,10 @@ footer{
 	text-shadow: 0.1em 0.1em #333;
 	background-image: url(../img/griptape1.jpg);
 }
+
+	footer p{
+		margin: 0px;
+	}
 
 #navigation{
 	height: 60px;
