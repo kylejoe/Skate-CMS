@@ -1,8 +1,58 @@
+<script type="text/javascript">
+//display a confirmation box when trying to delete an object
+
+function showConfirm(id)
+{
+	//build the confirmation box
+	var c = confirm("Are you sure you want to delete this item?");
+
+	//if true, delete item and refresh
+	if(c)
+		window.location = "skateoverview.php?delete="+id;
+}
+</script>
+
 <?php 
 require("model/skatemodel.php");
 
 class SkateController
 {
+	function CreateOverviewTable()
+	{
+		$result = "
+			<table class='overViewTable'>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><b>Id</b></td>
+					<td><b>Brand</b></td>
+					<td><b>Deck</b></td>
+					<td><b>Pros</b></td>
+					<td><b>Cons</b></td>
+					<td><b>Description</b></td>
+				</tr>";
+
+			$skateArray = $this->GetSkateByBrand('%'); // percentage sign returns all from mysql
+
+			foreach ($skateArray as $key => $value) 
+			{
+				$result = $result .
+					"<tr>
+						<td><a href='skateadd.php?update=$value->id'>Update</a></td>
+						<td><a href='#' onclick='showConfirm($value->id)'>Delete</a></td>
+						<td>$value->id</td>
+						<td>$value->brand</td>
+						<td>$value->deck</td>
+						<td>$value->pros</td>
+						<td>$value->cons</td>
+						<td>$value->description</td>
+					</tr>";
+			}
+
+			$result = $result . "</table>";
+			return $result;
+	}
+
 	function CreateSkateDropdownList()
 	{
 		$skateModel = new SkateModel();
@@ -117,18 +167,30 @@ class SkateController
 		$skateModel = new SkateModel();
 		$skateModel->InsertSkate($skate);
 
-		// $id, $brand, $deck, $pros, $cons, $price, $image, $description
+		// $id, $brand, $deck, $pros, $cons, $price, $image, $description MUST BE INSERTED IN THIS ORDER!!
 
 		// -1 is used when data is considered to be 'dummy data'
 	}
 
 	function UpdateSkate($id)
 	{
+		$deck = $_POST["txtDeck"];
+		$brands = $_POST["ddlBrands"];
+		$price = $_POST["txtPrice"];
+		$pros = $_POST["txtPros"];
+		$cons = $_POST["txtCons"];
+		$image = $_POST["ddlImage"];
+		$description = $_POST["txtDescription"];
 
+		$skate = new SkateEntity($id, $brands, $deck, $pros, $cons, $price, $image, $description);	
+		$skateModel = new SkateModel();
+		$skateModel->UpdateSkate($id, $skate);
 	}
 
 	function DeleteSkate($id)
 	{
+		$skateModel = new SkateModel();
+		$skateModel->DeleteSkate($id);
 
 	}
 	//</editor-fold>
@@ -153,11 +215,6 @@ class SkateController
 	}
 	//</editor-fold>
 }
-
-
-
-
-
 
 
 

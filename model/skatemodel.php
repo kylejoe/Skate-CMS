@@ -44,6 +44,7 @@ class SkateModel
 		//get data from database
 		while ($row = mysql_fetch_array($result)) 
 		{
+				$id = $row[0];
 				$brand = $row[1];
 				$deck = $row[2];
 				$pros = $row[3];
@@ -53,7 +54,7 @@ class SkateModel
 				$description = $row[7];
 
 				//create skate objects and store them in an array
-				$skate = new SkateEntity(-1, $brand, $deck, $pros, $cons, $price, $image, $description);
+				$skate = new SkateEntity($id, $brand, $deck, $pros, $cons, $price, $image, $description);
 				array_push($skateArray, $skate);
 
 		}
