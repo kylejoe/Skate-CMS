@@ -2,7 +2,7 @@
 
 	$title = "Home";
 	$content = '<img src="img/flip.jpg" class="imgLeft"/>
-<h3>Title 1</h3>
+<h3>Flip Tricks</h3>
 <p>
 	Skate ipsum dolor sit amet, lien air tuna-flip steps judo air. 
 	Skate or die invert slappy tuna-flip Vision. 
@@ -16,7 +16,7 @@
 </p>
 
 <img src="img/kitten.jpg" class="imgRight"/>
-<h3>Title 1</h3>
+<h3>Kitten Skate</h3>
 <p>
 	Hardware pogo tuna-flip egg plant kickflip John Cardiel ledge g-turn. 
 	Manual Vans crooked grind rail wheels tail gnarly stalefish. 
@@ -30,7 +30,7 @@
 </p>
 
 <img src="img/skate.jpg" class="imgLeft"/>
-<h3>Title 1</h3>
+<h3>Skate Art</h3>
 <p>
 	Danny Way skate or die shoveit gnarly kidney. 
 	Boned out crail grab nose 50-50. 
